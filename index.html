@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,11 +8,41 @@
     <title>Carrera De Carros</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
+    <div class="area">
+        <div id="div-car-1">
+            <img src="img/car1.jpg" alt="carro 1" id="car1">
+        </div>
+        <div id="div-car-2">
+            <img src="img/car2.jpg" alt="carro 2" id="car2">
+        </div>
+        <div id="div-car-3">
+            <img src="img/car3.jpg" alt="carro 3" id="car3">
+        </div>
+        <span id="msg"></span>
+        <img id="fondo" src="img/pistaCarrera.jpg" onclick="aumentar()" ondblclick="moverDerecha()" />
+    </div>
+   <!--  <div class="zona_boton">
+		<input type="button" onclick='setInterval("correr()",60)' value="A CORRER!">	
+	</div> -->
+    <!-- <button type="submit" id="movDer">mover a la derecha</button> -->
+    <div id="dadoNumero" class="dice">1</div>
+    <button id="dadot">Tira el Dado</button>
+    <h2 id="status" style="clear:left;"></h2>
+    <h2 id="tiro" style="clear:left;"></h2>
+    <h2 id="tiroDado" style="clear:left;"></h2>
+    <!-- <input type="submit" value="tirar dados"/> -->
+    <button type="submit" id="iniciar">iniciar</button>
+    <button type="submit" id="jugar">jugar</button>
+
 
 
     <script src="js/script.js"></script>
+    <script src="js/dado.js"></script>
     <!--font awesome-->
-    <script src="https://kit.fontawesome.com/7864fe4603.js" crossorigin="anonymous"></script> 
+    <script src="https://kit.fontawesome.com/7864fe4603.js" crossorigin="anonymous"></script>
 </body>
+<!--https://codepen.io/fmorenor/details/LGaOje-->
+
 </html>
