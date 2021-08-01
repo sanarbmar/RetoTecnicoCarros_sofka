@@ -97,76 +97,109 @@ const car2 = document.getElementById("car2");
 const car3 = document.getElementById("car3");
 const jugar = document.getElementById("jugar");
 const iniciar = document.getElementById("iniciar");
-let distanciaCarrera = 500;
-let distanciaPivot = 500;
+let distanciaCarrera = 600;
+class Carro {
+    constructor(id, nombre, auto, carril,posicion,llegada,carName) {
+        this.id = id;
+        this.nombre = nombre;
+        this.auto = auto;
+        this.carril = carril;
+        this.posicion = posicion;
+        this.llegada = llegada;
+        this.carName = carName;
+    }
+    avanza(_incPos) {
+        const car3 = document.getElementById(this.carName);
+        this.posicion += _incPos
+        car3.style.left = this.posicion + "px"
+        return this.posicion;
+    }
+}
 let arrayCarros = [
-    {
+    new Carro(car1,"pacho","mercedez benz",1,0,0,"car1"),
+    new Carro(car2,"sebastian","audi",1,0,0,"car2"),
+    new Carro(car3,"ana","mazda",1,0,0,"car3")
+    /* {
         id: car1,
         nombre: "pancho",
-        auto : "mercedes benz",
+        auto: "mercedes benz",
         carril: 1,
         posicion: 0,
+        llegada: 0,
         avanza: function (_incPos) {
             this.posicion += _incPos
             car1.style.left = this.posicion + "px"
-            console.log("NARANJA "+this.posicion);
+            console.log("NARANJA " + this.posicion);
             return this.posicion;
         }
     },
     {
         id: car2,
         nombre: "marlon",
-        auto : "audi",
+        auto: "audi",
         carril: 2,
         posicion: 0,
+        llegada: 0,
         avanza: function (_incPos) {
             this.posicion += _incPos
             car2.style.left = this.posicion + "px"
-            console.log("VERDE "+this.posicion);
+            console.log("VERDE " + this.posicion);
             return this.posicion;
         }
     },
     {
         id: car3,
         nombre: "santiago",
-        auto : "porche",
+        auto: "porche",
         carril: 3,
         posicion: 0,
+        llegada: 0,
         avanza: function (_incPos) {
             this.posicion += _incPos
             car3.style.left = this.posicion + "px"
-            console.log("ROJO "+this.posicion);
+            console.log("ROJO " + this.posicion);
             return this.posicion;
         }
-    }
+    } */
 ];
-function realizar_carrera() {
-    let max = 0;
-    let tmpPos;
-    for (let i = 0; i < 3; i++) {
-        
-        
-    
-    while (arrayCarros[i].posicion < distanciaCarrera) {
-        for (let j = 0; j < 3; j++) {
-            tmpPos = arrayCarros[j].avanza(Math.floor(Math.random() * 2) + 1);
-            //max=(tmpPos<arrayCarros[max].posicion)?max:j;
-            if (tmpPos < arrayCarros[max].posicion) {
-                max;
-            } else if (arrayCarros[j].posicion >= distanciaCarrera) {
-                console.log(`felicidades ${arrayCarros[j].nombre}   GANASTE`);
-                let ganador = arrayCarros[j].nombre;
-            } else {
-                j;
-            }
-           
-        }
 
-    }
+async function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+async function realizar_carrera() {
+    let max = 0;
+    let tmpPos = 1;
+    let carreraTerminada = false;
+    while (carreraTerminada == false) {
+        await sleep(10);
+        carreraTerminada = arrayCarros.every(x => x.posicion >= distanciaCarrera)
+        for (let i = 0; i < 3; i++) {
+            if (arrayCarros[i].posicion >= distanciaCarrera && arrayCarros[i].llegada == 0) {
+                /**la pista tiene 600 px , cada pixel son 5 metros para una pista de 3km */
+                arrayCarros[i].llegada = tmpPos;
+                //max=(tmpPos<arrayCarros[max].posicion)?max:j;
+                console.log(`el carro  ${arrayCarros[i].auto} , quedo en la posicion ${tmpPos} `)
+                almacenarEnArchivo(`el carro  ${arrayCarros[i].auto} , quedo en la posicion ${tmpPos} `)
+                tmpPos = tmpPos + 1;
+            }
+            if (arrayCarros[i].posicion < distanciaCarrera) {
+                arrayCarros[i].avanza((rollDice() * 100) / 5);
+            }
+            /**el every es paravalidar qu todos los elementos del array cumplan la condicion */
+
+        }
     }
     //console.log(tmpPos);
 }
+/* import fs from 'fs';
+var logger = fs.createWriteStream('log.txt', {
+  flags: 'a' // 'a' means appending (old data will be preserved)
+})
 
+function almacenarEnArchivo(registro) {
+    logger.write(registro) // append string to your file
+}
+almacenarEnArchivo() */
 
 iniciar.addEventListener("click", e => {
     realizar_carrera();

@@ -15,12 +15,8 @@ function rollDice(){
     tiroDado.innerHTML = "tu numero de PIXELES es "+d2+".";
     x = x+1;
     y = pos;
-    if (pos >= 20){
-    	alert("EL juego ha terminado");
-    	y = 0;
-
-    }
-   
+    
+   return d1;
 }
 dadot.addEventListener("click", e => {
     rollDice();
