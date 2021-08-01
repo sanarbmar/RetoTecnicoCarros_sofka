@@ -1,3 +1,8 @@
+body , html{
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
 .area{
     background-color: #E6E6FA;
     margin: 0 auto;
@@ -9,22 +14,12 @@
     border: 1px solid #6C7B8B;
     color: #104E8B;
     position: relative;
+    margin-bottom: 2%;
     img{
         width: 100%;
         height: 300px;
     }
 }
-/*#fondo{
-    width: 150px;
-    height: 150px;
-    position: relative;
-    top: 50%;
-    transform: translate(-50%,-50%);
-    left: 50%;
-   
-    
-}*/
-
 #formulario1{
     text-align: center;
 }
@@ -75,7 +70,6 @@
 }
 
 div.dice{
-	float:left;
 	width:32px;
 	background:#F5F5F5;
 	border:#999 1px solid;
@@ -83,4 +77,42 @@ div.dice{
 	font-size:24px;
 	text-align:center;
 	margin:5px;
+}
+.areajuego{
+    border-top-style: dotted;
+    border-right-style: solid;
+    border-bottom-style: dotted;
+    border-left-style: solid;
+    display: flex;
+    flex-direction: column;
+}
+#embolturaJugar,#resultados{
+    align-self: center;
+    margin-bottom: 5%;
+    margin-top: 2%;
+}
+#iniciar{
+    padding: 14px 26px;
+	font-size: 14px;
+	line-height: 100%;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.4);
+	color: #fff;
+	vertical-align: middle;
+	text-align: center;
+	cursor: pointer;
+	font-weight: bold;
+	transition: background 0.1s ease-in-out;
+	
+	color: #fff;
+	border-radius: 40px;
+	font-family: 'Helvetica Neue', Helvetica, sans-serif;
+    background-color: #aa65c7;
+	box-shadow: 0px 3px 0px 0px #883da7;
+}
+#iniciar:hover{
+    background-color: #9e4fbf;
+}
+#status,#tiro,#tiroDado{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #ff7b00;
 }
