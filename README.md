@@ -17,6 +17,7 @@ _Menciona las herramientas que utilizaste para crear tu proyecto_
 * HTML
 * CSS
 * JavaScript
+* SASS
 
 ## Versionado 📌
 
