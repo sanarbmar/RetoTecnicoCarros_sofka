@@ -7,6 +7,9 @@ Este reto consiste en hacer una carrera de carros , en mi caso escogí el lengua
 para ver los resultados del podio abrir la consola del navegador.
 pulsa ¡ correr ! para iniciar la carrera.
 
+URL PUBLICA DEL PROYECTO
+(https://sanarbmar.github.io/RetoTecnicoCarros_sofka/)
+
 ## Construido con 🛠️
 
 _Menciona las herramientas que utilizaste para crear tu proyecto_
@@ -17,7 +20,7 @@ _Menciona las herramientas que utilizaste para crear tu proyecto_
 
 ## Versionado 📌
 
-repositorio](https://github.com/sanarbmar/RetoTecnicoCarros_sofka).
+[repositorio](https://github.com/sanarbmar/RetoTecnicoCarros_sofka).
 
 ## Autores ✒️
 
